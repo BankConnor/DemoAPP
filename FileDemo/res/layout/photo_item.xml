@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="30dp" >
+    <ImageView 
+        android:src="@drawable/player"
+        android:id="@+id/photo_item_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"/>
+	<TextView
+	    android:text="JAVA"
+	    android:layout_alignBottom="@id/photo_item_image"
+	    android:layout_toRightOf="@id/photo_item_image"
+	    android:id="@+id/photo_item_textview"
+	    android:padding="10dp"
+	    android:gravity="center"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"/>
+</RelativeLayout>

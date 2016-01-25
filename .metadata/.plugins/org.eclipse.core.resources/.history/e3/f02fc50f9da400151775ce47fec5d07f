@@ -1,0 +1,56 @@
+package com.example.filedemo;
+
+import android.os.Bundle;
+
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FilterOutputStream;
+import java.io.OutputStreamWriter;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.view.Menu;
+import android.view.View;
+import android.widget.EditText;
+
+public class MainActivity extends Activity
+{
+	private EditText ed;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		
+		intoViews();
+	}
+	
+	private void intoViews()
+	{
+		ed = (EditText) findViewById(R.id.main_ed);
+	}
+
+	public void submit(View v) throws Exception
+	{
+		
+		String message = ed.getText().toString();
+		
+		FileOutputStream fileOutputStream = openFileOutput("MesicData.txt", MODE_PRIVATE);
+		OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream);
+		BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter);
+		
+		bufferedWriter.write(message);
+		bufferedWriter.flush();
+		
+		SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+		Editor editor = preferences.edit();
+		editor.putString("UserMessage", message);
+		editor.commit();
+	}
+
+}

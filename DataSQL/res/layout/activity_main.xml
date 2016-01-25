@@ -1,0 +1,37 @@
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+     xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:padding="15dp"
+        android:gravity="center"
+        android:text="用户管理后台"
+        android:textSize="30sp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:textStyle="normal"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:padding="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="添加用户"
+        android:onClick="insert"
+        android:background="@drawable/usermessage_item"/>
+    
+    <Button
+         android:textStyle="normal"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:padding="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="用户列表"
+        android:onClick="allusermessage"
+        android:background="@drawable/usermessage_item"/>
+    
+    
+</LinearLayout>

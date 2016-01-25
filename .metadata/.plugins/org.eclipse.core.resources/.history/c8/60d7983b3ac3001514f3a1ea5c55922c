@@ -1,0 +1,13 @@
+package com.example.framentdemo;
+
+import android.app.Activity;
+import android.app.Fragment;
+
+public class MainFragment extends Fragment
+{
+	@Override
+	public void onAttach(Activity activity)
+	{
+		super.onAttach(activity);
+	}
+}

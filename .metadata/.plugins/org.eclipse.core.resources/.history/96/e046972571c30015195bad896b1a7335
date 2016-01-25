@@ -1,0 +1,29 @@
+package com.example.fragmenttext;
+
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+public class OtherFragment extends Fragment
+{
+	private ViewGroup con;
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+	{
+		con = container;
+		return inflater.inflate(R.layout.text, null);
+	}
+	
+	@Override
+	public void onDestroyView()
+	{
+		// TODO Auto-generated method stub
+		super.onDestroyView();
+		Log.e("Connor", con.hashCode()+"");
+	}
+	
+	
+}

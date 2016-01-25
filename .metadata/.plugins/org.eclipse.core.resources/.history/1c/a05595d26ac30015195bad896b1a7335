@@ -1,0 +1,88 @@
+package com.example.fragmenttext;
+
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
+import android.view.View;
+
+public class MainActivity extends FragmentActivity
+{
+	private MainFragment mainFragment;
+	private FragmentManager manager;
+	private FragmentTransaction transaction;
+	
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+		manager = getSupportFragmentManager();//获取FragmentManager的事务管理者
+		mainFragment = new MainFragment();//创建出Fragment实例对象
+		
+		transaction = manager.beginTransaction();//开启事务 获取当前Fragment的事务对象
+		/*
+		 * 使用Fragment中的添加事务  
+		 * 参数1：把Fragment添加到容器中的容器id
+		 * 参数2：待添加的Fragment
+		 */
+		transaction.add(R.id.main_frame, mainFragment);
+		transaction.commit();//提交事务 如果事务不提交将会被回滚到上次提交事务的状态
+		
+	}
+	
+	public void demo(View v)
+	{
+		transaction = manager.beginTransaction();
+		OtherFragment otherFragment = new OtherFragment();
+		transaction.remove(mainFragment);
+		transaction.add(R.id.main_frame, otherFragment);
+		transaction.commit();
+	}
+	
+	@Override
+	protected void onStart()
+	{
+		// TODO Auto-generated method stub
+		super.onStart();
+		Log.i("Connor", "Activity --- onStart");
+	}
+	
+	@Override
+	protected void onResume()
+	{
+		// TODO Auto-generated method stub
+		super.onResume();
+		Log.i("Connor", "Activity -- onResume");
+	}
+	
+	@Override
+	protected void onPause()
+	{
+		// TODO Auto-generated method stub
+		super.onPause();
+		Log.i("Connor", "Activity -- onPuase");
+	}
+	
+	@Override
+	protected void onStop()
+	{
+		// TODO Auto-generated method stub
+		super.onStop();
+		Log.i("Connor", "Activity -- onStop");
+	}
+	
+	@Override
+	protected void onDestroy()
+	{
+		// TODO Auto-generated method stub
+		super.onDestroy();
+		Log.i("Connor", "Activity  --  onDestroy");
+	}
+
+	
+
+}

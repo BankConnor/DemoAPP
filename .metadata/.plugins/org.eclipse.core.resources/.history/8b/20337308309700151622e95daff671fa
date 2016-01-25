@@ -1,0 +1,86 @@
+package com.example.pass;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.webkit.WebView;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+
+public class TextDemo extends Activity 
+{
+	private ProgressBar pro; 
+	private int max;
+	private int count;
+	private InputStream in;
+	private OutputStream out;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.pro_demo);
+		
+		intoViews();
+	}
+
+	private void intoViews()
+	{
+		pro = (ProgressBar)findViewById(R.id.pro_pro);
+		max = (int)new File("/mnt/sdcard/pint.png").length();
+		try
+		{
+			in = new FileInputStream(new File("/mnt/sdcard/pint.png"));
+		} catch (FileNotFoundException e)
+		{
+			throw new RuntimeException("∂¡»° ß∞‹", e);
+		}
+		
+		try
+		{
+			out = new FileOutputStream(new File("/mnt/sdcard/pint2.png"));
+		} catch (FileNotFoundException e)
+		{
+			throw new RuntimeException("–¥»Î ß∞‹", e);
+		}
+		pro.setMax(max);
+	}
+	
+	public void change1(View v)
+	{
+		if(pro.getProgress()<max)
+		{
+			count = count + 10;
+			pro.setProgress(count);
+		}
+	}
+	
+	public void change0(View v)
+	{
+		if(pro.getProgress()<=max&&count>0)
+		{
+			count = count - 10;
+			pro.setProgress(count);
+		}
+	}
+
+
+	
+
+	
+}

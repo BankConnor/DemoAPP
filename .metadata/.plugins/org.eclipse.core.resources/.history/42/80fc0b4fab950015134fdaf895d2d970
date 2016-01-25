@@ -1,0 +1,57 @@
+package com.example.nrge;
+
+import android.os.Bundle;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
+import android.app.Activity;
+import android.graphics.drawable.Drawable;
+import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends Activity
+{
+	private TextView textView;
+	private ImageButton imagebutton;
+	private ImageButton button;
+	private static int count = 1;
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.radio_demo);
+		imagebutton = (ImageButton)findViewById(R.id.bt);
+		button = (ImageButton)findViewById(R.id.bt2);
+		textView = (TextView)findViewById(R.id.tv);
+		textView.setOnClickListener(new OnClickListener()
+		{
+			
+			@Override
+			public void onClick(View v)
+			{
+				String html = "<p><h1>"+count+"</h1><p>"
+			}
+		});
+	}
+	
+	public void Button(View v)
+	{
+		
+		++count;
+		if(count%2==0)
+		{
+			imagebutton.setImageDrawable(Drawable.createFromPath("/mnt/sdcard/pint2.png"));
+			button.setImageDrawable(Drawable.createFromPath("/mnt/sdcard/pint.png"));
+		}
+		else
+		{
+			button.setImageDrawable(Drawable.createFromPath("/mnt/sdcard/pint2.png"));
+			imagebutton.setImageDrawable(Drawable.createFromPath("/mnt/sdcard/pint.png"));
+		}
+		
+	}
+
+}

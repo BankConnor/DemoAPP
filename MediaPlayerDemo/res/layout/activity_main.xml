@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity"
+    android:padding="20dp" >
+
+    
+    <Button
+        android:id="@+id/start" 
+        android:onClick="start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开始播放"
+        android:layout_centerVertical="true"/>
+	<Button 
+	    android:onClick="pause"
+	    android:id="@+id/pause"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="暂停播放"
+	    android:layout_alignBottom="@id/start"
+	    android:layout_toRightOf="@id/start"
+	    />
+	
+	<Button 
+	    android:onClick="stop"
+	    android:id="@+id/stop"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="停止播放"
+	    android:layout_alignBottom="@id/start"
+	    android:layout_toRightOf="@id/pause"
+	    />
+	<ProgressBar 
+	    android:max="100"
+	    android:layout_above="@id/start"
+	    android:indeterminate="false"
+	    style="@android:style/Widget.ProgressBar.Horizontal"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:id="@+id/main_pro"/>
+</RelativeLayout>

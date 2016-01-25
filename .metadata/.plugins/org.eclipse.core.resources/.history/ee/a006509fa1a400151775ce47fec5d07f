@@ -1,0 +1,46 @@
+package com.example.filedemo;
+
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FilterOutputStream;
+import java.io.OutputStreamWriter;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.view.Menu;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class MainActivity extends Activity
+{
+	private EditText editText;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		
+		intoViews();
+	}
+	
+	private void intoViews()
+	{
+		editText = (EditText) findViewById(R.id.main_ed);
+	}
+
+	public void submit(View v) throws Exception
+	{
+		SharedPreferences sharedPreferences = getSharedPreferences("Connor", MODE_PRIVATE);
+		Toast.makeText(this, sharedPreferences.getString("UserMessage", "未找到数据，请效验Key值"), Toast.LENGTH_LONG);
+	}
+
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>   
+    <!-- declare-styleable 标示自定义属性的集合 -->
+    <declare-styleable name="myarrts">
+        <attr name="start" format="string"></attr><!-- arrt标示 单个属性的属性名 和 属性值的数据类型 -->
+        <attr name="end" format="string"></attr>
+        <attr name="text" format="string"></attr>
+    </declare-styleable>
+</resources>
+
+

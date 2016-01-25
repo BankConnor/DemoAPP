@@ -1,0 +1,45 @@
+package com.example.animationdemo;
+
+import android.os.Bundle;
+import android.text.Html;
+import android.util.Log;
+import android.view.View;
+import android.view.Window;
+import android.R.bool;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.animation.TypeEvaluator;
+import android.animation.ValueAnimator;
+import android.animation.ValueAnimator.AnimatorUpdateListener;
+import android.app.Activity;
+import android.widget.FrameLayout;
+import android.widget.TextView;
+
+public class MainActivity extends Activity 
+{
+	
+	private MyView my;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		my = (MyView) findViewById(R.id.mainMyview);
+	}
+	
+	public void show(View v)
+	{
+		my.setText("Hello Android");
+		my.getLayoutParams().height=100;
+		
+		my.requestLayout();//重新计算 当前View在容器中的位置
+	}
+	
+	
+	
+
+
+	
+
+}

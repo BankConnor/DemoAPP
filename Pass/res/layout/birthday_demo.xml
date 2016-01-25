@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <ImageView 
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:src="@drawable/xk"
+        android:scaleType="fitXY"
+        />
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:padding="25dp"
+        >
+         <TextView
+           	android:layout_centerHorizontal="true"
+	        android:textSize="50sp" 
+	        android:id="@+id/title_day"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"/>
+        <EditText 
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/title_day"
+           	android:singleLine="true"
+            android:padding="10dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/username_day"
+            android:background="#00000000"
+            android:hint="Insert UserName"/>
+        <EditText 
+            android:id="@+id/password_day"
+            android:layout_below="@id/username_day"
+            android:layout_alignRight="@id/username_day"
+            android:padding="10dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:password="true"
+            android:singleLine="true"
+            android:layout_marginTop="10dp"
+            android:hint="Insert PassWord"/>
+        <Button 
+            android:layout_below="@id/password_day"
+            android:layout_alignRight="@id/password_day"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:layout_marginTop="30dp"
+            android:background="#00000000"/>
+        
+    </RelativeLayout>
+
+</RelativeLayout>

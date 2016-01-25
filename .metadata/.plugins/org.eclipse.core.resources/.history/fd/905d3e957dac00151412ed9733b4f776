@@ -1,0 +1,46 @@
+package com.example.contextactivitysizedemo;
+
+import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.app.Activity;
+import android.view.Menu;
+import android.view.View;
+import android.view.Window;
+import android.widget.FrameLayout;
+import android.widget.Toast;
+
+public class MainActivity extends Activity
+{
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+	}
+	
+	public void showData(View v)
+	{
+		/*
+		 * 通过decroView物理屏幕对象查找到子容器ContentView对象 
+		 * ContentView是使用FrameLayout布局的
+		 * 使用ContentView对象来获取内容宽度和高度
+		 */
+		View decroView = getWindow().getDecorView();
+		FrameLayout contentView = (FrameLayout) decroView.findViewById(Window.ID_ANDROID_CONTENT);
+		int width = contentView.getWidth();//内部布局的宽度
+		int height = contentView.getHeight();//内容布局的高度
+		Log.i("Connor", "高度是"+height+", 宽度是"+width);
+	}
+	
+	public int px2dp(float density, int dp)
+	{
+		/*
+		 * 参数1 当前用户的屏幕的像素密度
+		 * 参数2 dp值 
+		 */
+		return (int)(density/dp+0.5);
+	}
+
+}

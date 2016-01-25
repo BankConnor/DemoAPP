@@ -1,0 +1,28 @@
+package com.example.nrge;
+
+import android.os.Bundle;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
+import android.app.Activity;
+import android.view.Menu;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends Activity
+{
+	private TextView tv;
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.radio_demo);
+		tv = (TextView) findViewById(R.id.tv);
+	}
+	
+	public void Button(View v)
+	{
+		Toast.makeText(this, "µã»÷³É¹¦", Toast.LENGTH_LONG);
+	}
+
+}

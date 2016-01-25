@@ -1,0 +1,50 @@
+package com.example.jsondemo;
+
+import android.os.Bundle;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.view.Menu;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnHoverListener;
+import android.widget.Button;
+import android.widget.Toast;
+
+@SuppressLint("NewApi")
+public class MainActivity extends Activity implements OnHoverListener
+{
+
+	private Button bu;
+	
+	@SuppressLint("NewApi")
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		
+		bu = (Button) findViewById(R.id.main_button);
+		bu.setOnHoverListener(this);
+	}
+
+	@Override
+	public boolean onHover(View v, MotionEvent event)
+	{
+		Toast.makeText(getApplicationContext(), "测试", Toast.LENGTH_LONG).show();
+		int what = event.getAction();
+		switch (what)
+		{
+		case MotionEvent.ACTION_HOVER_ENTER:
+			Toast.makeText(getApplicationContext(), "进入", Toast.LENGTH_LONG).show();
+			break;
+		case MotionEvent.ACTION_HOVER_MOVE:
+			Toast.makeText(getApplicationContext(), "悬浮在控件上", Toast.LENGTH_LONG).show();
+			break;
+		case MotionEvent.ACTION_HOVER_EXIT:
+			Toast.makeText(getApplicationContext(), "离开", Toast.LENGTH_LONG).show();
+			break;
+		}
+		return true;
+	}
+
+}

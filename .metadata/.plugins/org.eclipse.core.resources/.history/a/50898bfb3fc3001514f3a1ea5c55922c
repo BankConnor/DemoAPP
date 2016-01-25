@@ -1,0 +1,36 @@
+package com.example.framentdemo;
+
+import android.app.Activity;
+import android.app.Fragment;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+public class MainFragment extends Fragment
+{
+	@Override
+	public void onAttach(Activity activity)
+	{
+		/*
+		 * 准备状态
+		 * 告知Activity,当前的Fragment与Activity关联起来
+		 * 可以获取到当前与之关联的Fragment对象
+		 */
+		super.onAttach(activity);
+	}
+	
+	@Override
+	public void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+	}
+	
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+	{
+		return inflater.inflate(R.layout.demo, container);
+	}
+	
+}

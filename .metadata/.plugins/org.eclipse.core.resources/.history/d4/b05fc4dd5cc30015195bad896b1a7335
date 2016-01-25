@@ -1,0 +1,69 @@
+package com.example.fragmenttext;
+
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
+
+public class MainActivity extends FragmentActivity
+{
+	private MainFragment mainFragment;
+	private FragmentManager manager;
+
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+		manager = getSupportFragmentManager();//获取FragmentManager的事务管理者
+		mainFragment = new MainFragment();//创建出Fragment实例对象
+		FragmentTransaction transaction = manager.beginTransaction().add(R.id.main_frame, mainFragment);
+		transaction.commit();
+	}
+	
+	@Override
+	protected void onStart()
+	{
+		// TODO Auto-generated method stub
+		super.onStart();
+		Log.i("Connor", "Activity --- onStart");
+	}
+	
+	@Override
+	protected void onResume()
+	{
+		// TODO Auto-generated method stub
+		super.onResume();
+		Log.i("Connor", "Activity -- onResume");
+	}
+	
+	@Override
+	protected void onPause()
+	{
+		// TODO Auto-generated method stub
+		super.onPause();
+		Log.i("Connor", "Activity -- onPuase");
+	}
+	
+	@Override
+	protected void onStop()
+	{
+		// TODO Auto-generated method stub
+		super.onStop();
+		Log.i("Connor", "Activity -- onStop");
+	}
+	
+	@Override
+	protected void onDestroy()
+	{
+		// TODO Auto-generated method stub
+		super.onDestroy();
+		Log.i("Connor", "Activity  --  onDestroy");
+	}
+
+	
+
+}

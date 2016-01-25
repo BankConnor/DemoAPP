@@ -1,0 +1,48 @@
+package com.example.connor;
+
+import android.os.Bundle;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
+import android.app.Activity;
+import android.graphics.drawable.Drawable;
+import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageButton;
+import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends Activity
+{
+	private TextView textView;
+	private RadioGroup radiogroup;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.radio_demo);
+		textView = (TextView)findViewById(R.id.tv);
+		radiogroup = (RadioGroup)findViewById(R.id.sex);
+		radiogroup.setOnCheckedChangeListener(new OnCheckedChangeListener()
+		{
+			//参数1. 选中的RadioGroup对象
+			//参数2  选中的是该RadioGroup对象那个RadioButton
+			@Override
+			public void onCheckedChanged(RadioGroup group, int checkedId)
+			{
+				if(checkedId == R.id.man)
+				{
+					textView.setText(Html.fromHtml("<p><h1>男</h1></p>"));
+				}
+				else
+				{
+					textView.setText(Html.fromHtml("<p><h1>女</h1></p>"));
+				}
+			}
+		});
+	}
+
+}

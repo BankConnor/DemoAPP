@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+     android:background="@drawable/register_item" >
+    <TextView
+        android:id="@+id/usermessage_item_name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+
+        android:textSize="15dp"
+        android:text="Connor"/>
+    <TextView
+        android:id="@+id/usermessage_item_age"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+
+        android:textSize="15dp"
+        android:text="Connor"/>
+    <TextView
+        android:id="@+id/usermessage_item_sex"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textSize="15dp"
+        android:text="Connor"/>
+
+</LinearLayout>

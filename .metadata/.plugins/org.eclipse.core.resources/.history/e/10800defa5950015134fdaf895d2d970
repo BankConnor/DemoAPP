@@ -1,0 +1,46 @@
+package com.example.nrge;
+
+import android.os.Bundle;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
+import android.app.Activity;
+import android.graphics.drawable.Drawable;
+import android.view.Menu;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends Activity
+{
+	private ImageButton imagebutton;
+	private ImageButton button;
+	private static int count = 1;
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.radio_demo);
+		imagebutton = (ImageButton)findViewById(R.id.bt);
+		buuton = (ImageButton)findViewById(R.id.bt2);
+	}
+	
+	public void Button(View v)
+	{
+		if(count==10)
+		{
+			count = 0;
+		}
+		++count;
+		if(count%2==0)
+		{
+			imagebutton.setImageDrawable(Drawable.createFromPath("/mnt/sdcard/pint2.png"));
+		}
+		else
+		{
+			imagebutton.setImageDrawable(Drawable.createFromPath("/mnt/sdcard/pint.png"));
+		}
+		
+	}
+
+}

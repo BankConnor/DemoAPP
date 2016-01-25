@@ -1,0 +1,61 @@
+package com.example.filedemo;
+
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FilterOutputStream;
+import java.io.OutputStreamWriter;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.view.Menu;
+import android.view.View;
+import android.widget.EditText;
+
+public class MainActivity extends Activity
+{
+	private EditText editText;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		
+		intoViews();
+	}
+	
+	private void intoViews()
+	{
+		editText = (EditText) findViewById(R.id.main_ed);
+	}
+
+	public void submit(View v) throws Exception
+	{
+		
+		String message = editText.getText().toString();
+		
+		FileOutputStream fileOutputStream = openFileOutput("MesicData", MODE_PRIVATE);
+		OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream);
+		BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter);
+		
+		bufferedWriter.write(message);
+		bufferedWriter.flush();
+		
+		/*
+		 * 写数据到Connor.xml文件中 并且操作模式是数据覆盖
+		 */
+		SharedPreferences preferences = getApplicationContext().getSharedPreferences("Connor", MODE_PRIVATE);
+		
+		Editor editor = preferences.edit();//获取到编辑器Editor
+		editor.putString("UserMessage", message);//写数据
+		editor.commit();//更新到磁盘上
+	}
+
+}

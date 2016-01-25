@@ -1,0 +1,102 @@
+package com.example.fragmenttext;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+
+public class MainFragment extends Fragment
+{ 
+	@Override
+	public void onAttach(Activity activity)
+	{
+		super.onAttach(activity);
+		Log.i("Connor","Fragment -- onAttach");
+	}
+	@Override
+	public void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		Log.i("Connor", "Fragment --- onCreate");
+	}
+	
+	
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+	{
+		Log.i("Connor", "Fragment --- onCreateView");
+		ImageView childview = new ImageView(getActivity());
+		childview.setImageResource(R.drawable.ic_launcher);
+		container.addView(childview);
+		return null;
+	}
+	
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState)
+	{
+		// TODO Auto-generated method stub
+		super.onActivityCreated(savedInstanceState);
+		Log.i("Connor", "Fragment --- onActivityCreated");
+	}
+	
+	@Override
+	public void onStart()
+	{
+		// TODO Auto-generated method stub
+		super.onStart();
+		Log.i("Connor", "Fagment -- onStart");
+	}
+	
+	@Override
+	public void onResume()
+	{
+		// TODO Auto-generated method stub
+		super.onResume();
+		Log.i("Connor", "Fragment --- onResume");
+	}
+	
+	
+	@Override
+	public void onPause()
+	{
+		// TODO Auto-generated method stub
+		super.onPause();
+		Log.i("Connor", "Fragment --- onPause");
+	}
+	
+	@Override
+	public void onStop()
+	{
+		// TODO Auto-generated method stub
+		super.onStop();
+		Log.i("Connor", "Fragment --- onStop");
+	}
+	
+	@Override
+	public void onDestroyView()
+	{
+		// TODO Auto-generated method stub
+		super.onDestroyView();
+		Log.i("Connor", "Fragment --- onDestoryView");
+	}
+	
+	@Override
+	public void onDestroy()
+	{
+		// TODO Auto-generated method stub
+		super.onDestroy();
+		Log.i("Connor", "Fragment --- onDestory");
+	}
+	
+	@Override
+	public void onDetach()
+	{
+		// TODO Auto-generated method stub
+		super.onDetach();
+		Log.i("Connor", "Fragment --- onDetach");
+	}
+}

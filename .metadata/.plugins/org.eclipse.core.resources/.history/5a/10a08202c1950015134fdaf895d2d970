@@ -1,0 +1,57 @@
+package com.example.connor;
+
+import android.os.Bundle;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
+import android.app.Activity;
+import android.graphics.drawable.Drawable;
+import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.Window;
+import android.widget.ImageButton;
+import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends Activity
+{
+	private TextView textView;
+	private RadioGroup radiogroup;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);//去除掉标题
+		setContentView(R.layout.radio_demo);
+		initViews();
+	}
+	
+	private void initViews()
+	{
+		textView = (TextView)findViewById(R.id.tv);
+		textView.setText(Html.fromHtml("<p><h1>男</h1></p>"));//初始化指定是男
+		radiogroup = (RadioGroup)findViewById(R.id.sex);//获取到RadioGroup为下面的点击事件做准备
+		
+		radiogroup.setOnCheckedChangeListener(new OnCheckedChangeListener()//对Radiogroup设置点击事件
+		{
+			//参数1. 选中的RadioGroup对象
+			//参数2  选中的是该RadioGroup对象那个RadioButton
+			@Override
+			public void onCheckedChanged(RadioGroup group, int checkedId)
+			{
+				if(checkedId == R.id.man)
+				{
+					textView.setText(Html.fromHtml("<p><h1>男</h1></p>"));
+				}
+				else
+				{
+					textView.setText(Html.fromHtml("<p><h1>女</h1></p>"));
+				}
+			}
+		});
+	}
+
+}

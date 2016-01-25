@@ -1,0 +1,67 @@
+package com.example.puzzle;
+
+import android.os.Bundle;
+import android.util.Log;
+
+import java.util.HashMap;
+import java.util.Random;
+
+import com.MyViewGroup.MyRelativeLayout;
+
+import android.app.Activity;
+import android.view.Menu;
+import android.view.View;
+import android.widget.ImageView;
+
+public class MainActivity extends Activity
+{
+
+	private MyRelativeLayout mRelativeLayout;
+	public HashMap<Integer, Integer> okHashmap;
+	public HashMap<Integer, Integer> erroHashMap;
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		mRelativeLayout = (MyRelativeLayout) findViewById(R.id.main_viewgroup);
+	}
+
+	public void demo(View v)
+	{
+		erroHashMap = new HashMap<Integer, Integer>();
+		int[] num =randomCommon(0,mRelativeLayout.getN()* mRelativeLayout.getN(),mRelativeLayout.getN()* mRelativeLayout.getN());
+		for (int i = 0; i < count; i++)
+		{
+			ImageView imageView = (ImageView) mRelativeLayout.getChildAt(i);
+			imageView.setImageBitmap(mRelativeLayout.getBitmap().get(num[i]));
+		}
+	}
+	
+	public static int[] randomCommon(int min, int max, int n){  
+	    if (n > (max - min + 1) || max < min) {  
+	           return null;  
+	       }  
+	    int[] result = new int[n];  
+	    int count = 0;  
+	    while(count < n) {  
+	        int num = (int) (Math.random() * (max - min)) + min;  
+	        boolean flag = true;  
+	        for (int j = 0; j < n; j++) {  
+	            if(num == result[j]){  
+	                flag = false;  
+	                break;  
+	            }  
+	        }  
+	        if(flag){  
+	            result[count] = num;  
+	            count++;  
+	        }  
+	    }  
+	    return result;  
+	} 
+		
+		return a;
+	}
+
+}

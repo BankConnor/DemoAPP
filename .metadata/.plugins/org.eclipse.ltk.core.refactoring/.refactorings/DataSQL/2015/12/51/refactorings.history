@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;MyDataopenHelp.java&apos; to &apos;DataSQL/src/com.dao&apos;&#x0D;&#x0A;- Original project: &apos;DataSQL&apos;&#x0D;&#x0A;- Destination element: &apos;DataSQL/src/com.dao&apos;&#x0D;&#x0A;- Original element: &apos;com.example.datasql.MyDataopenHelp.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src&lt;com.dao" element1="/src&lt;com.example.datasql{MyDataopenHelp.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1450453091015" units="1" version="1.0"/>
+</session>
